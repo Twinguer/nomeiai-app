@@ -1,0 +1,247 @@
+{
+  "system": {
+    "name": "Nomeia Aí Logging System",
+    "version": "1.0.0",
+    "type": "Distributed Logging System",
+    "architecture": "Client-Server",
+    "description": "Sistema completo de logging para aplicação React/Node.js com rotação automática e categorização"
+  },
+  "components": {
+    "serverLogger": {
+      "file": "src/services/serverLogger.ts",
+      "type": "Singleton Class",
+      "purpose": "Server-side logging management",
+      "dependencies": ["fs", "path"],
+      "features": [
+        "Automatic file rotation",
+        "JSON structured logging",
+        "Sensitive data redaction",
+        "Multiple log categories",
+        "Performance optimization"
+      ],
+      "methods": {
+        "info": "Log informational messages",
+        "warn": "Log warning messages", 
+        "error": "Log error messages",
+        "debug": "Log debug messages",
+        "access": "Log HTTP access",
+        "security": "Log security events",
+        "database": "Log database operations",
+        "api": "Log API calls"
+      }
+    },
+    "clientLogger": {
+      "file": "src/services/clientLogger.ts",
+      "type": "Singleton Class",
+      "purpose": "Client-side logging management",
+      "dependencies": ["Browser APIs"],
+      "features": [
+        "In-memory log storage",
+        "Automatic error reporting",
+        "Log export functionality",
+        "Global error handling",
+        "Performance monitoring"
+      ],
+      "methods": {
+        "info": "Log informational messages",
+        "warn": "Log warning messages",
+        "error": "Log error messages", 
+        "debug": "Log debug messages",
+        "api": "Log API calls",
+        "userAction": "Log user interactions",
+        "performance": "Log performance metrics",
+        "getLogs": "Retrieve stored logs",
+        "exportLogs": "Export logs as JSON",
+        "downloadLogs": "Download logs as file"
+      }
+    },
+    "loggingMiddleware": {
+      "file": "src/middleware/loggingMiddleware.ts",
+      "type": "Express Middleware",
+      "purpose": "HTTP request/response logging",
+      "features": [
+        "Request interception",
+        "Response time measurement",
+        "User context extraction",
+        "Error handling",
+        "Security monitoring"
+      ]
+    },
+    "loggingConfig": {
+      "file": "src/config/logging.ts",
+      "type": "Configuration Object",
+      "purpose": "Centralized logging configuration",
+      "features": [
+        "Environment-based configuration",
+        "Log level control",
+        "Sensitive data redaction",
+        "Category enablement"
+      ]
+    }
+  },
+  "dataStructures": {
+    "LogEntry": {
+      "timestamp": "string (ISO 8601)",
+      "level": "enum [info, warn, error, debug]",
+      "message": "string",
+      "context": "string (optional)",
+      "data": "any (JSON stringified)",
+      "userId": "string (optional)",
+      "ip": "string (optional)",
+      "userAgent": "string (optional)"
+    }
+  },
+  "logCategories": {
+    "server": {
+      "AUTH": "Authentication and authorization",
+      "DATABASE": "Database operations",
+      "API": "External API calls",
+      "SECURITY": "Security violations",
+      "HTTP_REQUEST": "HTTP requests",
+      "HTTP_ERROR": "HTTP errors"
+    },
+    "client": {
+      "REACT_COMPONENT": "React component events",
+      "UI_INTERACTION": "User interactions",
+      "API": "Frontend API calls",
+      "PERFORMANCE": "Performance metrics",
+      "GLOBAL_ERROR": "Uncaught errors"
+    }
+  },
+  "fileStructure": {
+    "logs/": {
+      "server/": "Server-side logs",
+      "client/": "Client-side logs", 
+      "errors/": "Critical error logs",
+      "access/": "HTTP access logs",
+      "debug/": "Debug logs (development)",
+      ".gitignore": "Git exclusion rules"
+    }
+  },
+  "configuration": {
+    "environmentVariables": {
+      "ENABLE_LOGGING": "boolean - Enable/disable logging",
+      "LOG_LEVEL": "string - Server log level [debug, info, warn, error]",
+      "CLIENT_LOG_LEVEL": "string - Client log level [debug, info, warn, error]",
+      "ENABLE_CLIENT_LOGGING": "boolean - Enable client logging"
+    },
+    "fileRotation": {
+      "maxFileSize": "10MB",
+      "maxFiles": 5,
+      "strategy": "automatic_rotation"
+    },
+    "security": {
+      "redactFields": [
+        "password", "token", "authorization", "secret",
+        "key", "ssn", "creditCard", "cvv"
+      ],
+      "logSensitiveData": false
+    }
+  },
+  "usage": {
+    "server": {
+      "import": "import { serverLogger } from '@/services/serverLogger';",
+      "examples": [
+        "serverLogger.info('User created', 'USER_MANAGEMENT', { userId: '123' });",
+        "serverLogger.error('Database error', 'DATABASE', { error: 'Connection failed' });",
+        "serverLogger.access('GET', '/api/users', 200, 150, 'user123', '192.168.1.1');"
+      ]
+    },
+    "client": {
+      "import": "import { clientLogger } from '@/services/clientLogger';",
+      "examples": [
+        "clientLogger.userAction('Button clicked', 'UI_INTERACTION', { buttonId: 'submit' });",
+        "clientLogger.error('API failed', 'API', { url: '/api/users', status: 500 });"
+      ]
+    }
+  },
+  "monitoring": {
+    "metrics": [
+      "Error rate (error logs / total logs)",
+      "Response time (from access logs)",
+      "User activity patterns",
+      "Security violations"
+    ],
+    "alerts": [
+      "Critical errors > 5% of logs",
+      "Response time > 5 seconds",
+      "Login attempts > 10 failures/minute",
+      "Disk usage > 80%"
+    ]
+  },
+  "maintenance": {
+    "regularTasks": [
+      "Clean old logs (weekly)",
+      "Integrity verification (daily)",
+      "Critical logs backup (daily)",
+      "Pattern analysis (monthly)"
+    ],
+    "scripts": {
+      "cleanup": "find logs/ -name '*.log' -mtime +30 -delete",
+      "backup": "tar -czf logs-backup-$(date +%Y%m%d).tar.gz logs/errors/",
+      "integrity": "find logs/ -name '*.log' -exec wc -l {} \\;"
+    }
+  },
+  "integration": {
+    "externalTools": [
+      "ELK Stack (Elasticsearch, Logstash, Kibana)",
+      "Splunk Universal Forwarder",
+      "Datadog Log Agent",
+      "New Relic Logs"
+    ],
+    "apis": {
+      "logEndpoint": "/api/logs",
+      "exportEndpoint": "/api/logs/export",
+      "metricsEndpoint": "/api/logs/metrics"
+    }
+  },
+  "compliance": {
+    "audit": {
+      "immutability": "Logs cannot be modified",
+      "integrity": "Checksums for verification",
+      "retention": "Minimum 1 year",
+      "access": "Access logs for log access"
+    },
+    "privacy": {
+      "anonymization": "Personal data redacted",
+      "consent": "Consent logging",
+      "rightToForget": "Old log deletion",
+      "portability": "Data export"
+    }
+  },
+  "performance": {
+    "optimizations": [
+      "Asynchronous rotation",
+      "Log buffering",
+      "Compression for old files",
+      "Automatic cleanup"
+    ],
+    "metrics": {
+      "logLatency": "< 1ms per entry",
+      "memoryUsage": "< 10MB for buffer",
+      "diskUsage": "Controlled by rotation",
+      "cpuUsage": "< 1% during normal operation"
+    }
+  },
+  "troubleshooting": {
+    "commonIssues": {
+      "logsNotAppearing": {
+        "cause": "ENABLE_LOGGING=false or log level too high",
+        "solution": "Check environment variables and configuration"
+      },
+      "logsTooLarge": {
+        "cause": "Debug logs in production",
+        "solution": "Adjust log level and max file size"
+      },
+      "performanceDegraded": {
+        "cause": "Synchronous logging blocking operations",
+        "solution": "Implement asynchronous logging"
+      }
+    },
+    "diagnosticCommands": [
+      "du -sh logs/* (check log sizes)",
+      "wc -l logs/server/*.log (count log lines)",
+      "grep '\"level\":\"error\"' logs/errors/*.log (filter errors)"
+    ]
+  }
+}

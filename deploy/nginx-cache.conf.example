@@ -1,0 +1,14 @@
+# Cole dentro do server { } do Nginx (site nomeiai.com.br).
+# index.html sempre fresco (WebView / Portal do app); assets com hash podem cachear longo.
+
+location = /index.html {
+    add_header Cache-Control "no-cache, no-store, must-revalidate" always;
+    add_header Pragma "no-cache" always;
+    add_header Expires "0" always;
+    try_files $uri =404;
+}
+
+location /assets/ {
+    add_header Cache-Control "public, max-age=31536000, immutable" always;
+    try_files $uri =404;
+}

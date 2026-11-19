@@ -1,0 +1,31 @@
+project_id = "ppsymqrdtjyaguftracc"
+
+[functions.create-mp-preference]
+verify_jwt = true
+
+[functions.mp-webhook]
+verify_jwt = false
+
+[functions.calculate-ranking-score]
+verify_jwt = true
+
+[functions.send-confirmation-email]
+verify_jwt = false
+
+[functions.send-password-reset-email]
+verify_jwt = false
+
+[functions.create-checkout]
+verify_jwt = true
+
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.verify-stripe-subscription]
+verify_jwt = true
+
+[functions.metrics]
+verify_jwt = true
+
+[functions.sync-pci-concursos]
+verify_jwt = true

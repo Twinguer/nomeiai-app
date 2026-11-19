@@ -1,0 +1,189 @@
+/* Mobile Responsive Styles - Global overrides for better mobile experience */
+
+/* Ensure proper viewport width on all screens */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scrolling */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Container responsiveness */
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Card responsiveness */
+[class*="Card"] {
+  max-width: 100%;
+}
+
+/* Ensure buttons don't overflow */
+button {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* Form inputs should never overflow */
+input, textarea, select {
+  max-width: 100%;
+}
+
+/* Grid responsiveness - force single column on small screens */
+@media (max-width: 640px) {
+  [class*="grid-cols-2"],
+  [class*="grid-cols-3"],
+  [class*="grid-cols-4"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Flex responsiveness */
+@media (max-width: 640px) {
+  [class*="flex"] {
+    flex-wrap: wrap;
+  }
+}
+
+/* Text responsiveness - prevent overflow */
+h1, h2, h3, h4, h5, h6, p, span {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Table responsiveness */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Tab lists should scroll horizontally on mobile */
+[role="tablist"] {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+[role="tablist"]::-webkit-scrollbar {
+  height: 4px;
+}
+
+[role="tablist"]::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+[role="tablist"]::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 2px;
+}
+
+/* Prevent images from overflowing */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Modal/Dialog responsiveness */
+[role="dialog"] {
+  max-width: calc(100vw - 2rem);
+  max-height: calc(100vh - 2rem);
+}
+
+@media (max-width: 640px) {
+  [role="dialog"] {
+    max-width: calc(100vw - 1rem);
+    width: calc(100vw - 1rem);
+  }
+}
+
+/* Dropdown menus should not overflow */
+[role="menu"],
+[role="listbox"] {
+  max-width: calc(100vw - 2rem);
+}
+
+/* Sheet/Drawer mobile optimization */
+[data-state="open"][role="dialog"] {
+  max-width: 85vw;
+}
+
+/* Navigation menu mobile */
+nav {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  nav a, nav button {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Spacing adjustments for mobile */
+@media (max-width: 640px) {
+  .space-y-6 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-8 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  .gap-6 {
+    gap: 1rem;
+  }
+  
+  .gap-8 {
+    gap: 1.5rem;
+  }
+}
+
+/* Ensure proper touch targets on mobile (minimum 44x44px) */
+@media (max-width: 768px) {
+  button:not([role="checkbox"]),
+  a[role="button"],
+  [role="tab"],
+  [role="menuitem"] {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem;
+  }
+
+  [role="checkbox"],
+  button.p-0 {
+    min-height: unset;
+    min-width: unset;
+    padding: 0;
+  }
+}
+
+/* Prevent text from being too small on mobile */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  
+  small, .text-sm {
+    font-size: 14px;
+  }
+  
+  .text-xs {
+    font-size: 12px;
+  }
+}

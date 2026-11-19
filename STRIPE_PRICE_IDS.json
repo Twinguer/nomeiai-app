@@ -1,0 +1,36 @@
+{
+  "description": "Preencha os Price IDs dos produtos de teste do Stripe",
+  "instructions": "1. Acesse https://dashboard.stripe.com/test/products\n2. Para cada produto, clique nele e copie o Price ID (começa com 'price_')\n3. Preencha os campos abaixo\n4. Salve o arquivo e me avise",
+  "prices": {
+    "pro": {
+      "product_id": "prod_TONR0h51C5pz9Y",
+      "product_name": "Aluno Pro",
+      "price_id": "price_AQUI_COLE_O_PRICE_ID",
+      "description": "R$ 14,90/mês - Aluno Pro"
+    },
+    "coach_starter": {
+      "product_id": "prod_TONT5uCCMlcnS5",
+      "product_name": "Inicial",
+      "price_id": "price_AQUI_COLE_O_PRICE_ID",
+      "description": "R$ 49,90/mês - Modo Coach Inicial (5 alunos)"
+    },
+    "coach_professional": {
+      "product_id": "prod_TONR2PFCmzcZJb",
+      "product_name": "Intermediário",
+      "price_id": "price_AQUI_COLE_O_PRICE_ID",
+      "description": "R$ 89,90/mês - Modo Coach Intermediário (10 alunos)"
+    },
+    "coach_enterprise": {
+      "product_id": "prod_TONSgq35p0ahty",
+      "product_name": "Avançado",
+      "price_id": "price_AQUI_COLE_O_PRICE_ID",
+      "description": "R$ 149,90/mês - Modo Coach Avançado (25 alunos)"
+    }
+  },
+  "notes": [
+    "Os Price IDs começam com 'price_' e são diferentes dos Product IDs",
+    "Certifique-se de estar no modo TESTE ao copiar os IDs",
+    "Use o Price ID do preço mensal recorrente"
+  ]
+}
+

@@ -1,0 +1,2055 @@
+{
+  "timestamp": "2025-11-30T20:33:49.041Z",
+  "totalFiles": 383,
+  "totalIssues": 291,
+  "issues": {
+    "consoleLogs": [
+      {
+        "file": "src\\hooks\\useNotifications.tsx",
+        "line": 84,
+        "code": "console.warn('Erro ao verificar convite:', err);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 92,
+        "code": "console.log('🔵 [useResultadosData] Chamando fetchUserRankings com id:', id);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 94,
+        "code": "console.warn('⚠️ [useResultadosData] id é vazio, retornando array vazio');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 99,
+        "code": "console.log('✅ [useResultadosData] fetchUserRankings retornou:', result.length, 'rankings');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 102,
+        "code": "console.error('❌ [useResultadosData] Erro ao chamar fetchUserRankings:', error);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 110,
+        "code": "console.error('❌ [useResultadosData] Erro na query:', error);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 113,
+        "code": "console.log('✅ [useResultadosData] Query bem-sucedida:', data.length, 'rankings');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 50,
+        "code": "console.log('Sending log to server:', entry);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 52,
+        "code": "console.error('Failed to send log to server:', error);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 59,
+        "code": "console.log(`[CLIENT INFO] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 65,
+        "code": "console.warn(`[CLIENT WARN] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 71,
+        "code": "console.error(`[CLIENT ERROR] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 77,
+        "code": "console.log(`[CLIENT DEBUG] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 84,
+        "code": "console.log(`[CLIENT API] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 91,
+        "code": "console.log(`[CLIENT USER ACTION] ${action}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\clientLogger.ts",
+        "line": 98,
+        "code": "console.log(`[CLIENT PERFORMANCE] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 90,
+        "code": "console.log(`[INFO] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 96,
+        "code": "console.warn(`[WARN] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 102,
+        "code": "console.error(`[ERROR] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 108,
+        "code": "console.log(`[DEBUG] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 133,
+        "code": "console.warn(`[SECURITY] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 140,
+        "code": "console.log(`[DATABASE] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\services\\serverLogger.ts",
+        "line": 147,
+        "code": "console.log(`[API] ${message}`, data ? data : '');",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\utils\\logger.ts",
+        "line": 45,
+        "code": "// console.log(formattedMessage, safeData);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\utils\\logger.ts",
+        "line": 51,
+        "code": "console.warn(formattedMessage, safeData);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\utils\\logger.ts",
+        "line": 54,
+        "code": "console.error(formattedMessage, safeData);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\utils\\secureLogger.ts",
+        "line": 98,
+        "code": "console.error(formattedMessage);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\utils\\secureLogger.ts",
+        "line": 101,
+        "code": "console.warn(formattedMessage);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      },
+      {
+        "file": "src\\utils\\secureLogger.ts",
+        "line": 107,
+        "code": "console.debug(formattedMessage);",
+        "severity": "MEDIUM",
+        "issue": "Console.log direto (deve usar productionLogger)"
+      }
+    ],
+    "localStorage": [
+      {
+        "file": "src\\hooks\\useAuth.tsx",
+        "line": 71,
+        "code": "localStorage.setItem('is_password_recovery', 'true');",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\hooks\\useAuth.tsx",
+        "line": 82,
+        "code": "localStorage.setItem('is_password_recovery', 'true');",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\hooks\\useAuth.tsx",
+        "line": 91,
+        "code": "const isRecovery = localStorage.getItem('is_password_recovery') === 'true' ||",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\hooks\\useAuth.tsx",
+        "line": 99,
+        "code": "localStorage.setItem('is_password_recovery', 'true');",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\pages\\Auth\\Auth.tsx",
+        "line": 26,
+        "code": "localStorage.setItem('is_password_recovery', 'true');",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\pages\\Auth\\Auth.tsx",
+        "line": 36,
+        "code": "const isRecovery = localStorage.getItem('is_password_recovery') === 'true';",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\pages\\Auth\\ResetPassword.tsx",
+        "line": 42,
+        "code": "localStorage.setItem('is_password_recovery', 'true');",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      },
+      {
+        "file": "src\\pages\\Auth\\ResetPassword.tsx",
+        "line": 59,
+        "code": "localStorage.setItem('is_password_recovery', 'true');",
+        "severity": "HIGH",
+        "issue": "Dados sensíveis em localStorage"
+      }
+    ],
+    "exposedIds": [
+      {
+        "file": "src\\components\\Admin\\UserActions.tsx",
+        "line": 105,
+        "code": "logError('User does not have admin role', { userId: currentUser.user.id }, 'ADMIN');",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\community\\UserCard.tsx",
+        "line": 76,
+        "code": "<OnlineIndicator userId={userProfile.id} />",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\profile\\PresenceTracker.tsx",
+        "line": 25,
+        "code": "user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\profile\\UsersList.tsx",
+        "line": 62,
+        "code": "userId={user.id}",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 383,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 426,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\resultados\\RankingTable.tsx",
+        "line": 543,
+        "code": "<UserActions userId={ranking.userId} userName={ranking.name} rankingId={ranking.id} onSuccess={() => window.location.reload()} showOnlyRankingActions={true} />",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\resultados\\RankingTable.tsx",
+        "line": 785,
+        "code": "<UserActions userId={ranking.userId} userName={ranking.name} rankingId={ranking.id} onSuccess={() => window.location.reload()} showOnlyRankingActions={true} />",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\GroupMembersColumn.tsx",
+        "line": 119,
+        "code": "const userId = member.user_id || member.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\GroupSettingsModal.tsx",
+        "line": 227,
+        "code": "userId = userData.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\components\\UserMenu.tsx",
+        "line": 103,
+        "code": "userId={user?.id}",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\contexts\\PresenceContext.tsx",
+        "line": 107,
+        "code": "user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useAnswerSheet\\fetchExistingAnswers.tsx",
+        "line": 48,
+        "code": "const userId = user.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useAuditLog.tsx",
+        "line": 23,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useEditLimits.tsx",
+        "line": 35,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 49,
+        "code": "const userMember = members.find(m => (m.user_id === user?.id || m.id === user?.id));",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useNotifications.tsx",
+        "line": 170,
+        "code": "filter: `user_id=eq.${user.id}`,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedSessionData.tsx",
+        "line": 95,
+        "code": "const userId = targetUserId || user?.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\usePlanLimits.tsx",
+        "line": 48,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingParticipationLimits.tsx",
+        "line": 35,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 241,
+        "code": "const userRanking = isAuthenticated ? rankings.find((r: Ranking) => r.userId === user?.id) : null;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useSaveAnswers\\index.tsx",
+        "line": 221,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useStudyCyclesV2.tsx",
+        "line": 180,
+        "code": "const userId = targetUserId || user?.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useStudyCyclesV2.tsx",
+        "line": 260,
+        "code": "const userId = targetUserId || user?.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\hooks\\useStudyGroups.tsx",
+        "line": 86,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\integrations\\supabase\\community.ts",
+        "line": 90,
+        "code": "user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\integrations\\supabase\\rankings\\userRankings.ts",
+        "line": 111,
+        "code": "userId: userRanking.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\integrations\\supabase\\studyGroups\\groups.ts",
+        "line": 53,
+        "code": "user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\modules\\rankings\\pages\\RankingsPage.tsx",
+        "line": 95,
+        "code": "const isCreator = concursoData?.created_by_user_id === user.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\modules\\rankings\\pages\\RankingsPage.tsx",
+        "line": 114,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\Admin\\ListarUsuarios.tsx",
+        "line": 123,
+        "code": "userId={user.id}",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\Auth\\AuthCallback.tsx",
+        "line": 60,
+        "code": "const userId = data.session.user.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\Auth\\AuthCallback.tsx",
+        "line": 82,
+        "code": "const userId = session.user.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\CriarRanking.tsx",
+        "line": 470,
+        "code": "userId: user?.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\CriarRanking.tsx",
+        "line": 528,
+        "code": "userId: user?.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\CriarRanking.tsx",
+        "line": 561,
+        "code": "userId: user?.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\CicloDetalhes.tsx",
+        "line": 40,
+        "code": "const userId = coachMode && targetStudentId ? targetStudentId : user?.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\CriarCiclo.tsx",
+        "line": 169,
+        "code": "const userId = coachMode ? targetStudentId : user?.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\Dashboard.tsx",
+        "line": 43,
+        "code": "logger.debug('Buscando ciclos ativos', 'Dashboard', { userId: user?.id });",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\GroupDetailsPage.tsx",
+        "line": 56,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\PublicUserProfile.tsx",
+        "line": 367,
+        "code": "<OnlineIndicator userId={profile?.id as string} />",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\ResultadosPage.tsx",
+        "line": 127,
+        "code": "const isCreator = concursoData?.created_by_user_id === user.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 136,
+        "code": "p_user_id: user.id",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 298,
+        "code": "p_user_id: user.id",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 324,
+        "code": "p_user_id: user.id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 761,
+        "code": "userId={user?.id || ''}",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 769,
+        "code": "<DeleteProfileButton userId={user?.id || ''} />",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 793,
+        "code": "{user && <ProfileStatsColumn userId={user.id} rankings={userRankings} />}",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\communityUrlObfuscation.ts",
+        "line": 67,
+        "code": "const userId = secureData.user_id || secureData.userId;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\consolidatedAnswerService.ts",
+        "line": 74,
+        "code": "const userId = user.id;",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\optimizedUserRankingsService.ts",
+        "line": 272,
+        "code": "user_id: r.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\optimizedUserRankingsService.ts",
+        "line": 281,
+        "code": "user_id: ranking.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\optimizedUserRankingsService.ts",
+        "line": 293,
+        "code": "user_id: ranking.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\rankingService.ts",
+        "line": 233,
+        "code": "user_id: item.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\rankingService.ts",
+        "line": 285,
+        "code": "user_id: item.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      },
+      {
+        "file": "src\\services\\rankingService.ts",
+        "line": 381,
+        "code": "userId: item.user_id,",
+        "severity": "MEDIUM",
+        "issue": "User ID sendo passado diretamente (verificar se precisa ofuscação)"
+      }
+    ],
+    "reactKeys": [
+      {
+        "file": "src\\components\\Admin\\CreateRanking\\BasicInfoSection.tsx",
+        "line": 274,
+        "code": "{jobTitles.filter(job => job.title !== 'OUTRO').sort((a, b) => a.title.localeCompare(b.title)).map(job => <SelectItem key={job.id} value={job.title}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\CreateRanking\\BookletAnswerKeySelector.tsx",
+        "line": 80,
+        "code": "return <SelectItem key={booklet.id} value={booklet.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\CreateRanking\\ExamStructureSection.tsx",
+        "line": 348,
+        "code": "{form.watch('disciplines')?.map((block, blockIndex) => <div key={block.id} className=\"border border-border p-4 rounded-md mb-4\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\CreateRanking\\ExamStructureSection.tsx",
+        "line": 415,
+        "code": "{block.disciplines?.map((discipline, disciplineIndex) => <div key={discipline.id} className=\"border border-border p-4 rounded-md\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\CreateRanking\\GeneralCardForm.tsx",
+        "line": 151,
+        "code": "<SelectItem key={job.id} value={job.title}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\CreateRanking\\RankingHierarchySection.tsx",
+        "line": 202,
+        "code": "<SelectItem key={card.id} value={card.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\FormSections\\GeneralInfoSection.tsx",
+        "line": 51,
+        "code": "<SelectItem key={jobTitle.id} value={jobTitle.title}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\NotificationManager.tsx",
+        "line": 216,
+        "code": "<SelectItem key={concurso.id} value={concurso.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\Admin\\NotificationManager.tsx",
+        "line": 238,
+        "code": "<SelectItem key={user.id} value={user.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\profile\\CreatedRankingsTab.tsx",
+        "line": 145,
+        "code": "{displayRankings?.map((ranking: any) => <Card key={ranking.id} className=\"overflow-hidden\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\profile\\ProfileStatsColumn.tsx",
+        "line": 205,
+        "code": "key={group.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\profile\\RankingsTab.tsx",
+        "line": 439,
+        "code": "<Card key={ranking.concurso_id || ranking.concursos?.id || ranking.id} className=\"overflow-hidden\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\profile\\UsersList.tsx",
+        "line": 52,
+        "code": "<div key={user.id} className=\"relative\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\rankings\\RankingList.tsx",
+        "line": 202,
+        "code": "{rankings.map(ranking => <RankingItem key={ranking.id} {...ranking} onRankingClick={onRankingClick} />)}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\resultados\\BookletSelector.tsx",
+        "line": 66,
+        "code": "{booklets.map(booklet => <SelectItem key={booklet.id} value={booklet.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\resultados\\BookletSwitcher.tsx",
+        "line": 150,
+        "code": "<SelectItem key={booklet.id} value={booklet.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\resultados\\OfficialAnswerKey.tsx",
+        "line": 156,
+        "code": "<option key={booklet.id} value={booklet.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\resultados\\RankingTable.tsx",
+        "line": 524,
+        "code": "{rankings.length > 0 ? rankings.map(ranking => <TableRow key={ranking.userId} className={currentUserId && ranking.userId === currentUserId ? 'bg-muted' : ''}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\resultados\\RankingTable.tsx",
+        "line": 652,
+        "code": "return <TableRow key={ranking.userId} className={rowColorClass}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\resultados\\RankingTableVirtual.tsx",
+        "line": 202,
+        "code": "key={ranking.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\SecurityDashboard.tsx",
+        "line": 205,
+        "code": "<Card key={alert.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\SecurityDashboard.tsx",
+        "line": 241,
+        "code": "<Card key={alert.id} className=\"border-red-200\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\SecurityDashboard.tsx",
+        "line": 268,
+        "code": "<Card key={alert.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\SecurityDashboard.tsx",
+        "line": 295,
+        "code": "<Card key={alert.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\study\\EditalVerticalizado.tsx",
+        "line": 97,
+        "code": "<div key={block.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\study\\EditalVerticalizado.tsx",
+        "line": 160,
+        "code": "key={discipline.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\CommentSection.tsx",
+        "line": 82,
+        "code": "key={comment.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\CommentSection.tsx",
+        "line": 188,
+        "code": "key={reply.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\GroupMembersColumn.tsx",
+        "line": 121,
+        "code": "<div key={member.id} className=\"text-center\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\GroupSettingsModal.tsx",
+        "line": 378,
+        "code": "key={member.id || member.user_id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\GroupSettingsModal.tsx",
+        "line": 453,
+        "code": "key={post.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\GroupsGrid.tsx",
+        "line": 35,
+        "code": "key={group.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 569,
+        "code": "key={invitation.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachLandingPage.tsx",
+        "line": 208,
+        "code": "key={student.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\InviteStudentPage.tsx",
+        "line": 273,
+        "code": "key={user.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\StudentDetailsPage.tsx",
+        "line": 557,
+        "code": "<Card key={cycle.id} className=\"p-3\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\rankings\\pages\\RankingsPage.tsx",
+        "line": 408,
+        "code": "{filteredConcursos.map(concurso => <Link to={`/concurso/${concurso.id}/resultados`} key={concurso.id} className=\"block group h-full\" onClick={(e) => handleRankingClick(e, concurso.id)}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\rankings\\pages\\RankingsPage.tsx",
+        "line": 477,
+        "code": "{topConcursos.map((concurso, index) => <div key={concurso.id} className=\"block group cursor-pointer h-full\" onClick={(e) => handleRankingClick(e, concurso.id)}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\rankings\\pages\\RankingsPage.tsx",
+        "line": 512,
+        "code": "{concursos.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()).slice(0, 6).map(concurso => <div key={concurso.id} className=\"block group cursor-pointer h-full\" onClick={(e) => handleRankingClick(e, concurso.id)}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\modules\\study\\pages\\StudyDashboard.tsx",
+        "line": 235,
+        "code": "<div key={cycle.id} className=\"flex flex-col sm:flex-row sm:items-center justify-between p-4 border rounded-lg gap-4\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Admin\\ListarConcursos.tsx",
+        "line": 224,
+        "code": "key={concurso.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Admin\\ListarUsuarios.tsx",
+        "line": 112,
+        "code": "<TableRow key={user.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Admin\\VouchersManager.tsx",
+        "line": 370,
+        "code": "<TableRow key={voucher.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\CargosPage.tsx",
+        "line": 343,
+        "code": "<div key={cargo.id} className=\"block h-full cursor-pointer\" onClick={() => handleCargoClick(cargo.id)}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\CriarCiclo.tsx",
+        "line": 340,
+        "code": "</div> : blocks.map(block => <BlockCard key={block.id} block={block} onRemove={() => removeBlock(block.id)} onUpdateName={name => updateBlockName(block.id, name)} onAddDiscipline={() => openDisciplineDialog(block.id)} onEditDiscipline={discipline => openDisciplineDialog(block.id, discipline)} onRemoveDiscipline={disciplineId => removeDiscipline(block.id, disciplineId)} />)}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\CriarCiclo.tsx",
+        "line": 442,
+        "code": "{block.disciplines.map(discipline => <DisciplineItem key={discipline.id} discipline={discipline} onEdit={() => onEditDiscipline(discipline)} onRemove={() => onRemoveDiscipline(discipline.id)} />)}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\CriarConcurso.tsx",
+        "line": 349,
+        "code": "key={discipline.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\Cronograma.tsx",
+        "line": 1427,
+        "code": "{cycles.map(cycle => <SelectItem key={cycle.id} value={cycle.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\Cronograma.tsx",
+        "line": 1745,
+        "code": "{cycles.map(cycle => <SelectItem key={cycle.id} value={cycle.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\Cronograma.tsx",
+        "line": 1892,
+        "code": "return <div key={session.id} className={`p-3 rounded-lg border relative cursor-pointer transition-all duration-300 min-h-[180px] ${hasData ? 'border-primary/20 bg-primary/5 hover:bg-primary/10' : 'border-muted bg-muted/30 hover:bg-muted/50'} rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden`} style={{",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\Dashboard.tsx",
+        "line": 261,
+        "code": "{studyCycles.map(data => <StudyCycleCard key={data.cycle.id} cycleProgress={data} onStartSession={() => navigate(`/estudos/cronograma`)} onViewEdital={async () => {",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\EditarCiclo.tsx",
+        "line": 459,
+        "code": "key={block.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\EditarCiclo.tsx",
+        "line": 616,
+        "code": "key={discipline.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\GroupDetailsPage.tsx",
+        "line": 414,
+        "code": "<div key={request.id} className=\"p-3 bg-muted/50 rounded-lg border border-border\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\GroupDetailsPage.tsx",
+        "line": 508,
+        "code": "key={post.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Home.tsx",
+        "line": 191,
+        "code": "key={concurso.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Notifications.tsx",
+        "line": 190,
+        "code": "key={notification.id}",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Planos.tsx",
+        "line": 301,
+        "code": "{planos.map(plano => <Card key={plano.id} className={`relative flex flex-col ${plano.popular ? \"border-primary shadow-lg\" : \"\"}`}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Resultado.tsx",
+        "line": 60,
+        "code": "<option key={concurso.id} value={concurso.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\Resultado.tsx",
+        "line": 130,
+        "code": "<tr key={resultado.id}>",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      },
+      {
+        "file": "src\\pages\\UserFollowers.tsx",
+        "line": 217,
+        "code": "<Card key={userProfile.id} className=\"overflow-hidden\">",
+        "severity": "HIGH",
+        "issue": "User ID exposto em key do React (visível no DOM)"
+      }
+    ],
+    "urlParams": [
+      {
+        "file": "src\\App.tsx",
+        "line": 6,
+        "code": "import { QueryClientProvider } from \"@tanstack/react-query\";",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\App.tsx",
+        "line": 403,
+        "code": "<QueryClientProvider client={queryClient}>",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\App.tsx",
+        "line": 415,
+        "code": "</QueryClientProvider>",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\Admin\\AnswerKeyForm.tsx",
+        "line": 38,
+        "code": "queryKey: ['concurso-details', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\Admin\\AnswerKeyForm.tsx",
+        "line": 53,
+        "code": "queryKey: ['official-answers-weights', concursoId, bookletId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\Coach\\CoachInvitationModal.tsx",
+        "line": 110,
+        "code": "queryClient.setQueryData(['notifications', currentUser.id], (old: any) => {",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\Coach\\CoachInvitationModal.tsx",
+        "line": 193,
+        "code": "queryClient.setQueryData(['notifications', currentUser.id], (old: any) => {",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\Menu.tsx",
+        "line": 46,
+        "code": "queryKey: ['coach-subscription-menu', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\Menu.tsx",
+        "line": 47,
+        "code": "queryFn: () => coachSubscriptionService.getCoachSubscription(user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\CreatedRankingsTab.tsx",
+        "line": 37,
+        "code": "queryKey: ['user-created-rankings', userId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\FollowersService.ts",
+        "line": 36,
+        "code": "query = query.neq('id', excludeUserId);",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\ProfileStatsColumn.tsx",
+        "line": 26,
+        "code": "queryKey: ['user-groups', userId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\ProfileStatsColumn.tsx",
+        "line": 27,
+        "code": "queryFn: () => studyGroupMembersService.getUserGroups(userId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\ProfileStatsColumn.tsx",
+        "line": 33,
+        "code": "queryKey: ['user-study-stats', userId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\RankingsTab.tsx",
+        "line": 49,
+        "code": "queryKey: ['user-rankings', userId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\profile\\RankingsTab.tsx",
+        "line": 189,
+        "code": "queryKey: ['user-rankings-positions', userId, userRankings],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\AnswerSheet.tsx",
+        "line": 54,
+        "code": "queryKey: ['user-ranking-detail', rankingId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\AnswerSheet.tsx",
+        "line": 184,
+        "code": "queryKey: ['exam-booklets', concurso.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\AnswerSheet.tsx",
+        "line": 374,
+        "code": "queryKey: ['nullified-questions', concurso.id, selectedBookletIdFromData],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\BookletSwitcher.tsx",
+        "line": 89,
+        "code": "queryKey: ['user-ranking', rankingId]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 736,
+        "code": "queryKey: ['participating', concurso.id, user.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 739,
+        "code": "queryKey: ['concursos', concurso.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 742,
+        "code": "queryKey: ['concurso', concurso.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 746,
+        "code": "queryKey: ['participant-count-v2', concurso.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 749,
+        "code": "queryKey: ['user-participation-v2', concurso.id, user.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 752,
+        "code": "queryKey: ['concursos-pagination', concurso.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 756,
+        "code": "queryKey: ['rankings', concurso.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\ParticipationForm.tsx",
+        "line": 809,
+        "code": "queryKey: ['concursos', concurso.id]",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\resultados\\RankingParticipationWrapper.tsx",
+        "line": 13,
+        "code": "const { id } = useParams<{ id: string }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\studyGroups\\CreatePostForm.tsx",
+        "line": 39,
+        "code": "queryKey: ['user-profile', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\components\\UserMenu.tsx",
+        "line": 30,
+        "code": "queryKey: ['user-profile-menu', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\config\\queryClient.ts",
+        "line": 58,
+        "code": "queryKey: ['concurso', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useAnswerSheet\\index.tsx",
+        "line": 80,
+        "code": "queryKey: ['question-structure', concurso?.id, selectedBookletId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useAnswerSheet\\index.tsx",
+        "line": 146,
+        "code": "queryKey: ['user-answers', rankingId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useBookletAnswerKey.tsx",
+        "line": 18,
+        "code": "queryKey: ['exam-booklets', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useBookletAnswerKey.tsx",
+        "line": 56,
+        "code": "queryKey: ['booklets-completion', concursoId, booklets?.length],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useConsolidatedAnswerKey.tsx",
+        "line": 12,
+        "code": "queryKey: ['consolidated-answer-key', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useEditLimits.tsx",
+        "line": 25,
+        "code": "queryKey: ['edit-limits', user?.id, rankingId, currentEditCount],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 20,
+        "code": "queryKey: ['group-members', groupId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 21,
+        "code": "queryFn: () => studyGroupMembersService.getGroupMembers(groupId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 42,
+        "code": "queryKey: ['user-group-status', groupId, user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 43,
+        "code": "queryFn: () => studyGroupMembersService.getUserGroupStatus(groupId!, user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 224,
+        "code": "queryKey: ['user-groups', userId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupMembers.tsx",
+        "line": 225,
+        "code": "queryFn: () => studyGroupMembersService.getUserGroups(userId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupPosts.tsx",
+        "line": 18,
+        "code": "queryKey: ['group-feed', groupId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupPosts.tsx",
+        "line": 19,
+        "code": "queryFn: () => studyGroupPostsService.getGroupFeed(groupId!, limit, 0),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupRequests.tsx",
+        "line": 16,
+        "code": "queryKey: ['pending-requests', groupId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useGroupRequests.tsx",
+        "line": 17,
+        "code": "queryFn: () => studyGroupMembersService.getPendingRequests(groupId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useNotifications.tsx",
+        "line": 45,
+        "code": "queryKey: ['notifications', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOfficialAnswerWeights.tsx",
+        "line": 8,
+        "code": "queryKey: ['official-answers-weights', concursoId, bookletId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 53,
+        "code": "queryKey: userRankingsKeys.userRankings(targetUserId || ''),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 54,
+        "code": "queryFn: () => OptimizedUserRankingsService.getUserRankings(targetUserId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 69,
+        "code": "queryKey: userRankingsKeys.userRanking(targetUserId || '', concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 70,
+        "code": "queryFn: () => OptimizedUserRankingsService.getUserRankingByConcurso(targetUserId!, concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 82,
+        "code": "queryKey: userRankingsKeys.concursoRankings(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 83,
+        "code": "queryFn: () => OptimizedUserRankingsService.getConcursoRankings(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 98,
+        "code": "queryKey: userRankingsKeys.summaries(targetUserId || ''),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 99,
+        "code": "queryFn: () => OptimizedUserRankingsService.getUserRankingSummaries(targetUserId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 111,
+        "code": "queryKey: userRankingsKeys.positions(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 112,
+        "code": "queryFn: () => OptimizedUserRankingsService.calculateConcursoPositions(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 144,
+        "code": "queryKey: userRankingsKeys.user(user?.id || '')",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 147,
+        "code": "queryKey: userRankingsKeys.concurso(rankingData.concurso_id)",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 174,
+        "code": "queryKey: userRankingsKeys.user(user?.id || '')",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 177,
+        "code": "queryKey: userRankingsKeys.concurso(concursoId)",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 221,
+        "code": "queryKey: userRankingsKeys.user(user?.id || '')",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 224,
+        "code": "queryKey: userRankingsKeys.concurso(concursoId)",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 241,
+        "code": "queryKey: ['canParticipate', user?.id, concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 242,
+        "code": "queryFn: () => OptimizedUserRankingsService.canUserParticipate(user!.id, concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 253,
+        "code": "queryKey: ['quotaStatistics', concursoId, quotaType],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useOptimizedUserRankings.tsx",
+        "line": 254,
+        "code": "queryFn: () => OptimizedUserRankingsService.calculateQuotaStatistics(concursoId, quotaType),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useParticipantCount.tsx",
+        "line": 11,
+        "code": "queryKey: ['participant-count', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useParticipantCount.tsx",
+        "line": 12,
+        "code": "queryFn: () => getParticipantCount(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\usePlanLimits.tsx",
+        "line": 41,
+        "code": "queryKey: ['user-plan-limits', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useQuotaCache.tsx",
+        "line": 43,
+        "code": "queryKey: ['quota-config', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useQuotaCache.tsx",
+        "line": 44,
+        "code": "queryFn: () => fetchQuotaConfig(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingCreatorInfo.tsx",
+        "line": 49,
+        "code": "queryKey: ['creator-info', concurso.id, concurso.created_by_user_id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingParticipationLimits.tsx",
+        "line": 25,
+        "code": "queryKey: ['ranking-participation-limits', user?.id, concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 65,
+        "code": "queryKey: ['rankings-v3', concursoId, reservationType, currentPage, limit],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 66,
+        "code": "queryFn: () => fetchUserRankings(concursoId, reservationType, offset, limit),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 81,
+        "code": "queryKey: ['ranking-data-v3', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 82,
+        "code": "queryFn: () => fetchRankingData(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 95,
+        "code": "queryKey: ['ranking-disciplines-v3', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 96,
+        "code": "queryFn: () => fetchRankingDisciplines(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 109,
+        "code": "queryKey: ['ranking-reservation-types-v3', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 110,
+        "code": "queryFn: () => getAvailableReservationTypes(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 123,
+        "code": "queryKey: ['ranking-stats-v3', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 124,
+        "code": "queryFn: () => fetchRankingStats(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 263,
+        "code": "queryKey: ['ranking-stats-v3', concursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsDataV3.tsx",
+        "line": 264,
+        "code": "queryFn: () => fetchRankingStats(concursoId),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useRankingsPagination.tsx",
+        "line": 37,
+        "code": "queryKey: ['rankings-pagination', concursoId, reservationType, currentPage, initialLimit],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 22,
+        "code": "const { id: urlId } = useParams() as { id?: string };",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 41,
+        "code": "queryKey: ['concurso', id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 42,
+        "code": "queryFn: () => fetchConcursoById(id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 49,
+        "code": "queryKey: ['creator', concurso?.created_by_user_id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 90,
+        "code": "queryKey: ['rankings-v3', id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 113,
+        "code": "console.log('✅ [useResultadosData] Query bem-sucedida:', data.length, 'rankings');",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 119,
+        "code": "queryKey: ['participant-count-v2', id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useResultadosData.tsx",
+        "line": 160,
+        "code": "queryKey: ['user-participation-v2', id, user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useScheduleSessions.tsx",
+        "line": 18,
+        "code": "queryKey: ['schedule-sessions', userId, cycleId, dayOfWeek],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useScheduleSessions.tsx",
+        "line": 67,
+        "code": "queryKey: ['schedule-by-week', userId, cycleId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useStudyGroups.tsx",
+        "line": 55,
+        "code": "queryKey: ['study-group', groupId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useStudyGroups.tsx",
+        "line": 56,
+        "code": "queryFn: () => studyGroupService.getGroup(groupId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\hooks\\useSubscription.tsx",
+        "line": 21,
+        "code": "queryKey: ['subscription', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\AcceptInvitationPage.tsx",
+        "line": 30,
+        "code": "queryKey: ['coach-invitation', invitationId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 52,
+        "code": "queryKey: ['coach-subscription', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 53,
+        "code": "queryFn: () => coachSubscriptionService.getCoachSubscription(user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 59,
+        "code": "queryKey: ['coach-can-invite', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 60,
+        "code": "queryFn: () => coachSubscriptionService.checkIfCanInvite(user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 169,
+        "code": "queryKey: ['coach-students', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachDashboard.tsx",
+        "line": 206,
+        "code": "queryKey: ['coach-pending-invitations', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachLandingPage.tsx",
+        "line": 44,
+        "code": "queryKey: ['coach-subscription-landing', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachLandingPage.tsx",
+        "line": 45,
+        "code": "queryFn: () => coachSubscriptionService.getCoachSubscription(user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachSubscriptionPage.tsx",
+        "line": 38,
+        "code": "queryKey: ['coach-subscription', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\CoachSubscriptionPage.tsx",
+        "line": 39,
+        "code": "queryFn: () => coachSubscriptionService.getCoachSubscription(user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\modules\\coach\\pages\\InviteStudentPage.tsx",
+        "line": 35,
+        "code": "queryKey: ['coach-subscription', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\Admin\\ListarConcursos.tsx",
+        "line": 104,
+        "code": "// Usar query parameter seguro em vez de ID na URL",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\CargosPage.tsx",
+        "line": 28,
+        "code": "const { id: idParam } = useParams<{ id: string }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\ConcursoDetails.tsx",
+        "line": 19,
+        "code": "const { id } = useParams<{ id: string; }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\ConcursoDetails.tsx",
+        "line": 27,
+        "code": "queryKey: ['concurso', actualConcursoId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\ConcursoDetails.tsx",
+        "line": 28,
+        "code": "queryFn: () => fetchConcursoById(actualConcursoId!),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\ConcursoParticipation.tsx",
+        "line": 37,
+        "code": "queryKey: ['concurso', id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\ConcursoParticipation.tsx",
+        "line": 57,
+        "code": "queryKey: ['participating', id, user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\Estudos\\CicloDetalhes.tsx",
+        "line": 26,
+        "code": "const { id: urlId } = useParams<{ id: string }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\GroupDetailsPage.tsx",
+        "line": 43,
+        "code": "const { groupId } = useParams<{ groupId: string }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\GroupDetailsPage.tsx",
+        "line": 51,
+        "code": "queryKey: ['check-study-groups-access', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\Planos.tsx",
+        "line": 35,
+        "code": "queryKey: ['coach-subscription-planos', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\Planos.tsx",
+        "line": 36,
+        "code": "queryFn: () => coachSubscriptionService.getCoachSubscription(user!.id),",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\PublicUserProfile.tsx",
+        "line": 78,
+        "code": "queryKey: ['public-user-profile', id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\PublicUserProfile.tsx",
+        "line": 166,
+        "code": "queryKey: ['public-user-rankings', id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\ResultadosPage.tsx",
+        "line": 48,
+        "code": "const { id } = useParams<{ id: string }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\UserFollowers.tsx",
+        "line": 36,
+        "code": "const { id: routeUserId } = useParams<{ id: string }>();",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\UserFollowers.tsx",
+        "line": 41,
+        "code": "queryKey: ['user-followers', targetUserId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\UserFollowers.tsx",
+        "line": 76,
+        "code": "queryKey: ['user-following', targetUserId],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 72,
+        "code": "queryKey: ['user-profile', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 129,
+        "code": "queryKey: ['user-is-coach', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\pages\\UserProfile.tsx",
+        "line": 168,
+        "code": "queryKey: ['user-rankings-for-stats', user?.id],",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      },
+      {
+        "file": "src\\services\\rankingService.ts",
+        "line": 177,
+        "code": "throw new Error(`Ranking query error: ${rankingError.message || 'Erro desconhecido ao chamar RPC'}`);",
+        "severity": "MEDIUM",
+        "issue": "ID sendo extraído de URL params (verificar se precisa validação)"
+      }
+    ],
+    "jsonStringify": []
+  }
+}
