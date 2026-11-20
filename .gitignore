@@ -21,6 +21,7 @@ dist-ssr
 .env.test
 *.env
 *.env.*
+!deploy/prd-build.env.example
 .env.local.backup*
 .env.*.backup*
 env.nomeia-ai

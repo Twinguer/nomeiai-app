@@ -1105,6 +1105,7 @@ export type Database = {
           currency: string
           external_reference: string
           id: string
+          mercadopago_order_id: string | null
           paid_at: string | null
           period_ends_at: string | null
           period_starts_at: string | null
@@ -1124,6 +1125,7 @@ export type Database = {
           currency?: string
           external_reference: string
           id?: string
+          mercadopago_order_id?: string | null
           paid_at?: string | null
           period_ends_at?: string | null
           period_starts_at?: string | null
@@ -1143,6 +1145,7 @@ export type Database = {
           currency?: string
           external_reference?: string
           id?: string
+          mercadopago_order_id?: string | null
           paid_at?: string | null
           period_ends_at?: string | null
           period_starts_at?: string | null

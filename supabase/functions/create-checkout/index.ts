@@ -125,6 +125,16 @@ serve(async (req: Request): Promise<Response> => {
     );
   }
 
+  if (Deno.env.get("STRIPE_BILLING_ENABLED") !== "true") {
+    return new Response(
+      JSON.stringify({ error: "Novas compras estão disponíveis somente via Pix." }),
+      {
+        status: 410,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
+  }
+
   try {
     // Verificar se Stripe está disponível
     if (typeof Stripe === "undefined" || !Stripe) {

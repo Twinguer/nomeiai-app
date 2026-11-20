@@ -22,6 +22,8 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useCoachSubscription } from '@/modules/coach';
 import { isActiveCoachSubscription } from '@/modules/coach/hooks/useIsActiveCoach';
 import { logError, logWarn } from '@/utils/secureLogger';
+import { PixPaymentDialog } from '@/modules/payments/components/PixPaymentDialog';
+import type { CreateCheckoutResponse } from '@/modules/payments/domain/types';
 
 const CoachSubscriptionPage = () => {
   const navigate = useNavigate();
@@ -31,6 +33,7 @@ const CoachSubscriptionPage = () => {
   const queryClient = useQueryClient();
   const { validateDiscountVoucher } = useSubscription();
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [pixCheckout, setPixCheckout] = useState<CreateCheckoutResponse | null>(null);
   const {
     voucherCode,
     setVoucherCode,
@@ -50,7 +53,7 @@ const CoachSubscriptionPage = () => {
   // Buscar assinatura Pro para verificar hierarquia de planos
   const { isPro } = useSubscription();
 
-  // Retorno legado do Stripe; novas compras usam Pix e o webhook como fonte de verdade.
+  // Retorno legado do Stripe; novas compras aceitam Pix e cartão, com o webhook como fonte de verdade.
   useEffect(() => {
     const status = searchParams.get("status");
     const plan = searchParams.get("plan");
@@ -120,7 +123,7 @@ const CoachSubscriptionPage = () => {
     }
     if (payment !== 'return' || !orderId) return;
 
-    toast({ title: 'Aguardando confirmação do Pix', description: 'O plano será liberado após a confirmação do Mercado Pago.' });
+    toast({ title: 'Aguardando confirmação do pagamento', description: 'O plano será liberado após a confirmação do Mercado Pago.' });
     const confirmPayment = async () => {
       try {
         const order = await paymentService.waitForPayment(orderId);
@@ -130,9 +133,9 @@ const CoachSubscriptionPage = () => {
         await queryClient.invalidateQueries({ queryKey: ['coach-can-invite', user?.id] });
         await queryClient.invalidateQueries({ queryKey: ['community-users'] });
         if (order?.status === 'approved') {
-          toast({ title: 'Pix confirmado!', description: 'Seu plano Coach já está ativo.' });
+          toast({ title: 'Pagamento confirmado!', description: 'Seu plano Coach já está ativo.' });
           navigate('/coach/dashboard', { replace: true });
-        } else if (order?.status === 'rejected' || order?.status === 'cancelled') {
+        } else if (['rejected', 'failed', 'cancelled', 'canceled'].includes(order?.status ?? '')) {
           toast({ title: 'Pagamento não aprovado', description: 'Você pode tentar novamente.', variant: 'destructive' });
           navigate('/coach/subscription', { replace: true });
         } else {
@@ -140,15 +143,15 @@ const CoachSubscriptionPage = () => {
           navigate('/coach/subscription', { replace: true });
         }
       } catch (error) {
-        logError('Erro ao consultar pagamento Pix Coach', error, 'PAYMENT');
-        toast({ title: 'Pix em processamento', description: 'Confira novamente em instantes; a confirmação é automática.' });
+        logError('Erro ao consultar pagamento Coach', error, 'PAYMENT');
+        toast({ title: 'Pagamento em processamento', description: 'Confira novamente em instantes; a confirmação é automática.' });
         navigate('/coach/subscription', { replace: true });
       }
     };
     void confirmPayment();
   }, [searchParams, navigate, toast, queryClient, user?.id]);
 
-  const handleSubscribe = async () => {
+  const handleSubscribe = async (paymentMethod: 'pix' | 'card' = 'pix') => {
     if (!user?.id) {
       toast({
         title: "Autenticação necessária",
@@ -160,14 +163,19 @@ const CoachSubscriptionPage = () => {
     }
 
     const planId = 'coach_starter';
-    setLoadingPlan(planId);
+    setLoadingPlan(`${planId}:${paymentMethod}`);
     try {
       const checkout = await paymentService.createCheckout(
         planId,
         appliedDiscountVoucher?.code,
         '/coach/subscription',
+        paymentMethod,
       );
 
+      if (checkout.method === 'pix') {
+        setPixCheckout(checkout);
+        return;
+      }
       if (!checkout.url) {
         throw new Error("URL de checkout não disponível");
       }
@@ -194,7 +202,7 @@ const CoachSubscriptionPage = () => {
       popular: true,
       planType: 'starter' as const,
       features: [
-        'Pagamento mensal por Pix, com renovação manual',
+        'Pagamento mensal por Pix ou cartão, com renovação manual',
         '5 dias de tolerância após o vencimento',
         'Até 5 alunos',
         'Acesso a todos os rankings',
@@ -314,28 +322,27 @@ const CoachSubscriptionPage = () => {
                   && !!activeSubscription?.expires_at
                   && new Date(activeSubscription.expires_at).getTime() <= Date.now();
                 const shouldDisable = currentPlanLevel <= maxActiveLevel && !canRenewCoachDuringGrace;
-                const isLoading = loadingPlan === planId;
+                const isLoading = loadingPlan?.startsWith(`${planId}:`) ?? false;
                 
-                return (
-                  <Button 
+                return isCurrentPlan || shouldDisable ? (
+                  <Button
                     className="w-full mt-auto"
                     variant={plan.popular ? 'default' : 'outline'}
-                    onClick={handleSubscribe}
+                    onClick={() => handleSubscribe()}
                     disabled={isLoading || shouldDisable}
                   >
-                    {isLoading ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Processando...
-                      </>
-                    ) : isCurrentPlan ? (
-                      canRenewCoachDuringGrace ? 'Renovar com Pix' : 'Seu plano atual'
-                    ) : shouldDisable ? (
-                      'Plano Atual'
-                    ) : (
-                      'Assinar'
-                    )}
+                    {isLoading ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Processando...</> :
+                      isCurrentPlan ? (canRenewCoachDuringGrace ? 'Renovar plano' : 'Seu plano atual') : 'Plano Atual'}
                   </Button>
+                ) : (
+                  <div className="mt-auto grid grid-cols-2 gap-2">
+                    <Button onClick={() => handleSubscribe('pix')} disabled={isLoading}>
+                      {loadingPlan === `${planId}:pix` ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Aguarde…</> : 'Pagar com Pix'}
+                    </Button>
+                    <Button variant="outline" onClick={() => handleSubscribe('card')} disabled={isLoading}>
+                      {loadingPlan === `${planId}:card` ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Aguarde…</> : 'Pagar com cartão'}
+                    </Button>
+                  </div>
                 );
               })()}
             </CardContent>
@@ -356,6 +363,17 @@ const CoachSubscriptionPage = () => {
           dialogDescription="Aplique um cupom de desconto no seu plano Modo Coach"
         />
       </div>
+
+      <PixPaymentDialog
+        checkout={pixCheckout}
+        onOpenChange={(open) => { if (!open) setPixCheckout(null); }}
+        onPaymentApproved={() => {
+          void queryClient.invalidateQueries({ queryKey: ['coach-subscription', user?.id] });
+          void queryClient.invalidateQueries({ queryKey: ['coach-subscription-menu', user?.id] });
+          void queryClient.invalidateQueries({ queryKey: ['coach-subscription-landing', user?.id] });
+          void queryClient.invalidateQueries({ queryKey: ['coach-can-invite', user?.id] });
+        }}
+      />
 
       {/* FAQ */}
       <Card className="mt-8">

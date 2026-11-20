@@ -1,5 +1,5 @@
 /**
- * Payment Service — checkout Pix via Mercado Pago; mantém consultas Stripe para assinaturas legadas.
+ * Payment Service ? checkout Pix ou cartão via Mercado Pago; mantém consultas Stripe para assinaturas legadas.
  */
 
 import { supabase } from '@/integrations/supabase/client';
@@ -24,15 +24,15 @@ async function ensureValidSession(): Promise<string> {
 
   if (timeUntilExpiry < 300 || expiresAt <= now) {
     try {
-      const { data: { session: refreshedSession }, error: refreshError } =
+      const { data: refreshedData, error: refreshError } =
         await supabase.auth.refreshSession(session);
 
       if (refreshError) {
         throw new Error('Sessão expirada. Por favor, faça login novamente.');
       }
 
-      if (refreshedSession?.session?.access_token) {
-        return refreshedSession.session.access_token;
+      if (refreshedData.session?.access_token) {
+        return refreshedData.session.access_token;
       }
       throw new Error('Não foi possível atualizar a sessão. Por favor, faça login novamente.');
     } catch (refreshError: unknown) {
@@ -102,6 +102,7 @@ export const paymentService = {
     planId: string,
     voucherCode?: string,
     returnPath: '/planos' | '/coach/subscription' = '/planos',
+    paymentMethod: 'pix' | 'card' = 'card',
   ): Promise<CreateCheckoutResponse> {
     try {
       if (!planId || typeof planId !== 'string') {
@@ -110,49 +111,37 @@ export const paymentService = {
 
       await ensureValidSession();
 
-      devLog.log('[paymentService] Criando checkout Pix no Mercado Pago para plano:', planId);
+      devLog.log('[paymentService] Criando checkout no Mercado Pago para plano:', planId);
       devLog.log('[paymentService] Voucher:', voucherCode || 'nenhum');
-      const body: Record<string, string> = { planId, returnPath };
+      const body: Record<string, string> = { planId, returnPath, paymentMethod };
       if (voucherCode) {
         body.voucherCode = voucherCode;
       }
       devLog.log('[paymentService] Body que será enviado:', sanitizeForLog(body));
-      const { data, error } = await supabase.functions.invoke('create-mp-preference', { body });
+      const { data, error } = await supabase.functions.invoke('create-mp-order', { body });
 
       if (data) {
-        devLog.log('[paymentService] Resposta recebida:', data);
+        devLog.log('[paymentService] Resposta recebida:', { method: data.method });
       }
 
       if (error) {
-        devLog.error('[paymentService] Erro completo da API:', error);
-
-        if (error?.context) {
+        devLog.error('[paymentService] Payment API request failed:', error);
+        const response = error.context as Response | undefined;
+        if (response && typeof response.clone === 'function') {
+          let serverMessage: string | undefined;
           try {
-            const response = error.context as Response;
-            if (response?.body) {
-              const errorText = await response.clone().text();
-              devLog.error('[paymentService] Erro da função (texto):', errorText);
-              try {
-                const errorBody = JSON.parse(errorText) as { details?: string };
-                devLog.error('[paymentService] Detalhes do erro da função:', errorBody);
-                if (errorBody.details) {
-                  throw new Error(errorBody.details);
-                }
-              } catch (parseError) {
-                if (parseError instanceof Error && parseError.message !== errorText) {
-                  throw parseError;
-                }
-                throw new Error(errorText || error.message);
-              }
-            }
-          } catch (e: unknown) {
-            if (e instanceof Error && e.message) {
-              throw e;
-            }
-            devLog.error('[paymentService] Erro ao ler resposta:', e);
+            const errorText = await response.clone().text();
+            const errorBody = JSON.parse(errorText) as { error?: string; details?: string };
+            serverMessage = errorBody.details || errorBody.error;
+          } catch {
+            // Fall back to the HTTP error when the function response is not JSON.
+          }
+          if (serverMessage) {
+            const apiError = new Error(serverMessage);
+            apiError.name = 'PaymentApiError';
+            throw apiError;
           }
         }
-
         throw handleApiError(error);
       }
 
@@ -160,14 +149,14 @@ export const paymentService = {
         throw new Error('Resposta inválida do servidor');
       }
 
-      if (!data.url || !data.session_id) {
+      if (!data.order_id || !data.session_id || (paymentMethod === 'card' && !data.url) || (paymentMethod === 'pix' && !data.qr_code && !data.ticket_url)) {
         throw new Error('Resposta incompleta do servidor');
       }
 
-      devLog.log('[paymentService] Checkout Pix criado com sucesso');
+      devLog.log('[paymentService] Checkout criado com sucesso');
       return data as CreateCheckoutResponse;
     } catch (error) {
-      if (isHandledError(error)) {
+      if (isHandledError(error) || (error instanceof Error && error.name === 'PaymentApiError')) {
         throw error;
       }
       devLog.error('[paymentService] Erro ao processar pagamento');
@@ -189,7 +178,7 @@ export const paymentService = {
         throw new Error('Não foi possível consultar o pagamento. Tente novamente em instantes.');
       }
       latest = data as PaymentOrderStatus | null;
-      if (!latest || ['approved', 'rejected', 'cancelled', 'refunded', 'charged_back', 'creation_failed'].includes(latest.status)) {
+      if (!latest || ['approved', 'rejected', 'failed', 'cancelled', 'canceled', 'refunded', 'charged_back', 'creation_failed'].includes(latest.status)) {
         return latest;
       }
       if (attempt < attempts - 1) {

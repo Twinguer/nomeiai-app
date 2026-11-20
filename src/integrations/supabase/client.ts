@@ -30,14 +30,8 @@ if (!SUPABASE_ANON_KEY) {
   devLog.warn('⚠️ VITE_SUPABASE_ANON_KEY não configurada. Configure no .env.local para desenvolvimento.');
 }
 
-// ✅ SEGURANÇA: Validar se a URL não aponta para projeto inexistente
-// Bloquear criação do cliente se a URL for inválida (mesmo em desenvolvimento)
-if (SUPABASE_URL && SUPABASE_URL.includes('xuovcuefnullpmpktrzd')) {
-  const error = new Error('❌ CRÍTICO: VITE_SUPABASE_URL aponta para um projeto Supabase inválido. Configure a URL correta no ambiente.');
-  devLog.error(error.message);
-  // Lançar erro imediatamente (tanto em produção quanto em desenvolvimento)
-  throw error;
-}
+// The target is validated before each named build (PRD or HML), rather than
+// hard-coding a hosted Supabase project identifier in the client.
 
 // Validação final antes de criar o cliente
 // Em produção, DEVE ter ambas as variáveis configuradas

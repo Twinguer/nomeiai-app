@@ -211,6 +211,13 @@ serve(async (req: Request): Promise<Response> => {
     );
   }
 
+  if (Deno.env.get("STRIPE_BILLING_ENABLED") !== "true") {
+    return new Response(
+      JSON.stringify({ success: false, message: "Stripe está desativado." }),
+      { status: 410, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+    );
+  }
+
   try {
     // Criar cliente Supabase para autenticação
     const supabase = createClient(

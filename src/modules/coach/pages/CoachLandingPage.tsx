@@ -7,13 +7,13 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { getPublicProfileImageUrl } from '@/utils/avatarUtils';
-import {
-  Users,
-  Clock,
-  CheckCircle,
-  TrendingUp,
-  Award,
-  Target,
+import { 
+  Users, 
+  Clock, 
+  CheckCircle, 
+  TrendingUp, 
+  Award, 
+  Target, 
   BarChart3,
   ArrowRight,
   GraduationCap
@@ -174,7 +174,7 @@ const CoachLandingPage = () => {
           <CardContent>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                 {studentsWithRealPhotos.map((student) => (
-                <Card
+                <Card 
                   key={student.id}
                   className="hover:shadow-lg transition-all duration-200 border-2 hover:border-primary/30"
                 >

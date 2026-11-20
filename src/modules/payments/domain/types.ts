@@ -10,9 +10,16 @@ export interface Subscription {
 }
 
 export interface CreateCheckoutResponse {
-  url: string;
+  method: 'pix' | 'card';
+  url?: string;
+  order_id: string;
   session_id: string;
+  qr_code?: string | null;
+  qr_code_base64?: string | null;
+  ticket_url?: string | null;
 }
+
+export type PixCheckout = CreateCheckoutResponse & { method: 'pix' };
 
 export interface PaymentOrderStatus {
   id: string;

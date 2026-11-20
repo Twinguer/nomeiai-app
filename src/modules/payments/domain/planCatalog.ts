@@ -36,7 +36,7 @@ export const PRO_PLAN_CATALOG: ProPlanDefinition[] = [
     periodo: 'Mês',
     popular: true,
     features: [
-      'Pagamento mensal por Pix, com renovação manual;',
+      'Pagamento mensal por Pix ou cartão, com renovação manual;',
       '5 dias de tolerância após o vencimento;',
       'Participa de até 5 Rankings simultâneos;',
       'Visualização de todos os Rankings;',

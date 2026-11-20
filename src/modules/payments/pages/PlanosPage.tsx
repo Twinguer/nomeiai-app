@@ -24,6 +24,8 @@ import { trackConversion } from '@/lib/analytics';
 import { useIsActiveCoach, isActiveCoachSubscription } from '@/modules/coach';
 import { useSubscription } from '../hooks/useSubscription';
 import { paymentService } from '../services/paymentService';
+import { PixPaymentDialog } from '../components/PixPaymentDialog';
+import type { CreateCheckoutResponse } from '../domain/types';
 import { LaunchPromoBanner } from '../components/LaunchPromoBanner';
 import { LAUNCH_PROMO_COPY } from '../domain/launchPromo';
 import {
@@ -52,6 +54,7 @@ const PlanosPage = () => {
   const { subscription: coachSubscription } = useIsActiveCoach({ enabled: !!user });
 
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [pixCheckout, setPixCheckout] = useState<CreateCheckoutResponse | null>(null);
   const [voucherCode, setVoucherCode] = useState('');
   const [appliedDiscountVoucher, setAppliedDiscountVoucher] = useState<{
     code: string;
@@ -137,22 +140,22 @@ const PlanosPage = () => {
     }
     if (payment !== 'return' || !orderId) return;
 
-    toast({ title: 'Aguardando confirmação do Pix', description: 'O plano será liberado após a confirmação do Mercado Pago.' });
+    toast({ title: 'Aguardando confirmação do pagamento', description: 'O plano será liberado após a confirmação do Mercado Pago.' });
     const confirmPayment = async () => {
       try {
         const order = await paymentService.waitForPayment(orderId);
         await refetch();
         if (order?.status === 'approved') {
           trackConversion('purchase', { value: Number(order.amount), currency: 'BRL' });
-          toast({ title: 'Pix confirmado!', description: 'Seu plano já está ativo.' });
-        } else if (order?.status === 'rejected' || order?.status === 'cancelled') {
+          toast({ title: 'Pagamento confirmado!', description: 'Seu plano já está ativo.' });
+        } else if (['rejected', 'failed', 'cancelled', 'canceled'].includes(order?.status ?? '')) {
           toast({ title: 'Pagamento não aprovado', description: 'Você pode tentar novamente.', variant: 'destructive' });
         } else {
           toast({ title: 'Pagamento ainda pendente', description: 'A confirmação e a liberação do acesso são automáticas.' });
         }
       } catch (error) {
-        logError('Erro ao consultar pagamento Pix', error, 'PAYMENT');
-        toast({ title: 'Pix em processamento', description: 'Confira novamente em instantes; a confirmação é automática.' });
+        logError('Erro ao consultar pagamento', error, 'PAYMENT');
+        toast({ title: 'Pagamento em processamento', description: 'Confira novamente em instantes; a confirmação é automática.' });
       } finally {
         navigate('/planos', { replace: true });
       }
@@ -160,7 +163,7 @@ const PlanosPage = () => {
     void confirmPayment();
   }, [searchParams, navigate, refetch]);
 
-  const handleSubscribe = async (planoId: string) => {
+  const handleSubscribe = async (planoId: string, paymentMethod: 'pix' | 'card' = 'pix') => {
     if (planoId === 'free') {
       toast({
         title: 'Você já está no plano gratuito',
@@ -187,7 +190,7 @@ const PlanosPage = () => {
       return;
     }
 
-    setLoadingPlan(planoId);
+    setLoadingPlan(`${planoId}:${paymentMethod}`);
     try {
       const { data: { session } } = await supabase.auth.getSession();
 
@@ -205,8 +208,13 @@ const PlanosPage = () => {
         planoId,
         appliedDiscountVoucher?.code,
         '/planos',
+        paymentMethod,
       );
 
+      if (checkout.method === 'pix') {
+        setPixCheckout(checkout);
+        return;
+      }
       if (!checkout.url) {
         throw new Error('URL de checkout não disponível');
       }
@@ -434,41 +442,43 @@ const PlanosPage = () => {
                   const shouldDisable =
                     (currentPlanLevel <= maxActiveLevel && !canRenewProDuringGrace) ||
                     (launchPromoActive && plano.id === 'pro' && isPro);
-                  const isLoading = loadingPlan === plano.id;
+                  const isLoading = loadingPlan?.startsWith(`${plano.id}:`) ?? false;
                   const isLaunchProSignup = launchPromoActive && plano.id === 'pro' && !isPro;
 
                   return (
-                    <Button
-                      className="w-full mt-6"
-                      variant={plano.popular ? 'default' : 'outline'}
-                      onClick={() => handleSubscribe(plano.id)}
-                      disabled={isLoading || shouldDisable}
-                    >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                          Processando...
-                        </>
-                      ) : isCurrentPlan ? (
-                        canRenewProDuringGrace
-                          ? 'Renovar com Pix'
-                          : isLaunchPromo && plano.id === 'pro'
-                          ? LAUNCH_PROMO_COPY.badgeIncluded
-                          : 'Plano Atual'
-                      ) : shouldDisable ? (
-                        'Plano Atual'
-                      ) : isLaunchProSignup ? (
-                        user ? 'Ativar Pro grátis' : 'Cadastrar grátis'
-                      ) : (
-                        'Assinar'
-                      )}
-                    </Button>
+                    isCurrentPlan || shouldDisable || isLaunchProSignup ? (
+                      <Button
+                        className="w-full mt-6"
+                        variant={plano.popular ? 'default' : 'outline'}
+                        onClick={() => handleSubscribe(plano.id)}
+                        disabled={isLoading || shouldDisable}
+                      >
+                        {isLoading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" />Processando...</> :
+                          isCurrentPlan ? (canRenewProDuringGrace ? 'Renovar plano' : isLaunchPromo && plano.id === 'pro' ? LAUNCH_PROMO_COPY.badgeIncluded : 'Plano Atual') :
+                            shouldDisable ? 'Plano Atual' : user ? 'Ativar Pro grátis' : 'Cadastrar grátis'}
+                      </Button>
+                    ) : (
+                      <div className="mt-6 grid grid-cols-2 gap-2">
+                        <Button onClick={() => handleSubscribe(plano.id, 'pix')} disabled={isLoading}>
+                          {loadingPlan === `${plano.id}:pix` ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Aguarde…</> : 'Pagar com Pix'}
+                        </Button>
+                        <Button variant="outline" onClick={() => handleSubscribe(plano.id, 'card')} disabled={isLoading}>
+                          {loadingPlan === `${plano.id}:card` ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Aguarde…</> : 'Pagar com cartão'}
+                        </Button>
+                      </div>
+                    )
                   );
                 })()}
               </CardContent>
             </Card>
           ))}
         </div>
+
+        <PixPaymentDialog
+          checkout={pixCheckout}
+          onOpenChange={(open) => { if (!open) setPixCheckout(null); }}
+          onPaymentApproved={() => { void refetch(); }}
+        />
 
         <div className="max-w-4xl mx-auto mt-6 flex items-center justify-center">
           {appliedDiscountVoucher ? (

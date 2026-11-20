@@ -1,6 +1,11 @@
-project_id = "ppsymqrdtjyaguftracc"
+# Local self-hosted source used by the separate PRD and HML stacks.
+# Do not link this config to the retired hosted project.
+project_id = "nomeiai-self-hosted"
 
 [functions.create-mp-preference]
+verify_jwt = true
+
+[functions.create-mp-order]
 verify_jwt = true
 
 [functions.mp-webhook]
